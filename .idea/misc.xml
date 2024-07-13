@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="enabledOnSave" value="true" />
+    <option name="pathToExecutable" value="/Library/Frameworks/Python.framework/Versions/3.11/bin/black" />
+    <option name="sdkName" value="Python 3.12 (newscapsule)" />
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/backend" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_22">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

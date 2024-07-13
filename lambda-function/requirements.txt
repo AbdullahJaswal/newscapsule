@@ -1,0 +1,7 @@
+black==24.4.2
+beautifulsoup4==4.12.3
+flake8==7.1.0
+isort==5.13.2
+psycopg==3.1.19
+pydantic[email]==2.7.4
+requests==2.32.3

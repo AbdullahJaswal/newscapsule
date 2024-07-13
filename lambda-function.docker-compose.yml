@@ -1,0 +1,11 @@
+services:
+  lambda-function:
+    build:
+      context: ./lambda-function/
+      dockerfile: ./lambda-function.Dockerfile
+    container_name: lambda-function
+    entrypoint: /lambda-function/lambda-function.entrypoint.sh
+    env_file:
+      - ./lambda-function/.env
+    volumes:
+      - ./lambda-function:/lambda-function

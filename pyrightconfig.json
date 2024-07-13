@@ -1,0 +1,7 @@
+{
+    "venvPath": "./lambda-function",
+    "venv": ".venv",
+    "pythonVersion": "3.12",
+    "exclude": ["**/node_modules", "**/__pycache__"],
+    "logLevel": "info"
+}

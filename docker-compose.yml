@@ -1,0 +1,55 @@
+services:
+  nc-frontend:
+    build:
+      context: ./frontend/
+      dockerfile: dev.Dockerfile
+    container_name: nc-frontend
+    entrypoint: /frontend/dev.entrypoint.sh
+    volumes:
+      - node_modules:/frontend/node_modules
+      - ./frontend:/frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - staging
+    depends_on:
+      - nc-backend
+  nc-backend:
+    build:
+      context: ./backend/
+      dockerfile: dev.Dockerfile
+    container_name: nc-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./backend/.env.dev
+    networks:
+      - staging
+    depends_on:
+      - nc-db
+  nc-db:
+    image: postgres:16-alpine
+    container_name: nc-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=newscapsule
+      - POSTGRES_PASSWORD=newscapsule
+      - POSTGRES_DB=newscapsule
+      - PGDATA=/tmp
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - staging
+
+volumes:
+  node_modules:
+  db_data:
+
+networks:
+  staging:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 54.28.0.0/16
+          gateway: 54.28.0.1
